@@ -8,13 +8,25 @@ from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
-if not api_key:
-    st.sidebar.error("Please set OPENAI_API_KEY in your .env file and restart.")
-    st.stop()
 
 # Page config
 st.set_page_config(page_title="AI STD Generator", layout="wide")
+
+default_api_key = os.getenv("OPENAI_API_KEY", "")
+
+# Sidebar: let user override
+st.sidebar.subheader("OpenAI Configuration")
+api_key_input = st.sidebar.text_input(
+    "Your OpenAI API Key",
+    value=default_api_key,
+    type="password",
+    help="https://platform.openai.com/account/api-keys"
+)
+effective_api_key = api_key_input.strip() or default_api_key
+if not effective_api_key:
+    st.sidebar.error("Please enter your OpenAI API key.")
+    st.stop()
+
 
 # Custom CSS for styling
 st.markdown(
@@ -26,6 +38,8 @@ st.markdown(
     .stExpander { background: #FFFFFF; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 16px; margin-bottom: 16px; }
     /* Header styling */
     .title { font-size: 2.5rem; color: #0052CC; font-weight: 600; margin-bottom: 24px; }
+    section.stSidebar.st-emotion-cache-r90ti5.edtmxes0{
+    width: 400px !important;}
     </style>
     """, unsafe_allow_html=True)
 
@@ -48,7 +62,7 @@ with col2:
     download = st.button("Download CSV")
 
 # Initialize OpenAI client
-client = OpenAI(api_key=api_key)
+client = OpenAI(api_key=effective_api_key)
 
 # Session state for tests
 if 'tests' not in st.session_state:
