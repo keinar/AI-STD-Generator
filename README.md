@@ -7,6 +7,12 @@ It formats the generated cases into a CSV compatible with Testmo import.
 ![image](https://github.com/user-attachments/assets/e6ac8f72-0db3-4ae5-bae7-d130bd9810f1)
 
 
+## 🔗 Live Demo
+
+[Click here to try it out!](https://ai-std-generator.onrender.com/)
+
+
+
 ---
 
 ## Key Features
