@@ -1,10 +1,6 @@
 import os
 
-# ───────────────────────────────────────────────────────
-# לפני כל import של streamlit – כיבוי ה-file watcher
-# כדי למנוע Torch.classes.inspect errors
 os.environ["STREAMLIT_SERVER_FILE_WATCHER_TYPE"] = "none"
-# ───────────────────────────────────────────────────────
 
 import re
 import io
