@@ -9,8 +9,7 @@ It formats the generated cases into a CSV compatible with Testmo import.
 
 ## 🔗 Live Demo
 
-[Click here to try it out!](https://ai-std-generator.onrender.com/)
-
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://ai-std-generator.onrender.com/)
 
 
 ---
