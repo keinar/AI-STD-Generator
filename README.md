@@ -4,6 +4,9 @@ A Streamlit-based application that uses OpenAI's large language model
 to **generate software test cases** (STDs) from feature specifications. 
 It formats the generated cases into a CSV compatible with Testmo import.
 
+![image](https://github.com/user-attachments/assets/e6ac8f72-0db3-4ae5-bae7-d130bd9810f1)
+
+
 ---
 
 ## Key Features
