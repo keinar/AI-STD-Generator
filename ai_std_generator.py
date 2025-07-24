@@ -116,6 +116,8 @@ if uploaded_images:
         caption = processor.decode(out_ids[0], skip_special_tokens=True)
         image_captions.append(f"{img_file.name}: {caption}")
 
+num_cases = st.sidebar.number_input("Number of Test Cases", min_value=5, max_value=50, value=10)
+
 # 9) Sidebar: model choice + action buttons
 st.sidebar.subheader("Generation Settings")
 model = st.sidebar.selectbox(
@@ -148,7 +150,7 @@ if generate:
     else:
         # assemble prompt
         prompt = (
-            f"Generate test cases in JSON array format for Testmo import.\n"
+            f"Generate exactly {num_cases} test cases in JSON array format for Testmo import.\n"
             f"Feature: {feature_name}\n"
             f"Specification:\n{spec_text}\n"
         )

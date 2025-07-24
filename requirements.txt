@@ -2,3 +2,4 @@ streamlit
 openai
 pandas
 python-dotenv
+transformers
